@@ -370,9 +370,7 @@ async handleFilter (val) {
                             <div class="col-sm-6">
                                 <div class="btn-group">
                                 <div class="dropdown">
-                                <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Sort by
-                                </button>
+                               
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                   <button class="dropdown-item" type="button" onClick={() => {
                                     this.state.isLoading = true
@@ -404,9 +402,7 @@ async handleFilter (val) {
 
                             <div class="btn-group">
                             <div class="dropdown">
-                            <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            {this.state.order == -1 ? "Descending" : "Ascending"}
-                            </button>
+                            
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                               <button class="dropdown-item" type="button" onClick={() => {
                                 this.state.isLoading = true
@@ -464,7 +460,7 @@ async handleFilter (val) {
                     <td >2020-05-13</td>
                     <td >Done</td>
                     <td >No</td>
-                    <td >NA</td>
+                    <td ><input type="checkbox" name="name35" /></td>
 		        </tr>
                 <tr >
                     <td >rqst1246</td>
@@ -474,7 +470,7 @@ async handleFilter (val) {
                     <td >2020-05-13</td>
                     <td >Done</td>
                     <td >No</td>
-                    <td >NA</td>
+                    <td ><input type="checkbox" name="name35" /></td>
 		        </tr>
                 <tr >
                     <td >rqst2006</td>
@@ -484,7 +480,7 @@ async handleFilter (val) {
                     <td >2020-05-13</td>
                     <td >Done</td>
                     <td >No</td>
-                    <td >NA</td>
+                    <td ><input type="checkbox" name="name35" /></td>
 		        </tr>
                 <tr >
                     <td >rqst2146</td>
@@ -494,7 +490,7 @@ async handleFilter (val) {
                     <td >2020-05-13</td>
                     <td >Done</td>
                     <td >No</td>
-                    <td >NA</td>
+                    <td ><input type="checkbox" name="name35" /></td>
 		        </tr>
                 <tr >
                     <td >rqst2686</td>
@@ -504,7 +500,7 @@ async handleFilter (val) {
                     <td >2020-05-13</td>
                     <td >Done</td>
                     <td >No</td>
-                    <td >NA</td>
+                    <td ><input type="checkbox" name="name35" /></td>
 		        </tr>
                 <tr >
                     <td >rqst2746</td>
@@ -514,12 +510,14 @@ async handleFilter (val) {
                     <td >2020-05-13</td>
                     <td >Done</td>
                     <td >Yes</td>
-                    <td >NA</td>
+                    <td ><input type="checkbox" name="name35" /></td>
 		        </tr>
                  </tbody>
              </table>
           </div> 
+         
           </div>
+          
       
         ):
           this.state.events.map((item)=>
@@ -609,6 +607,11 @@ async handleFilter (val) {
              
           ) }
       </div>
+     <div > <button type="button" class={this.state.isFilterActive ? "btn btn-danger" : "btn btn-primary " }onClick={() => {
+                            this.state.isLoading = true
+                           
+                        }}>{this.state.isFilterActive ? "Reset" : "Approve"}
+            </button></div>
                                 <tr>
                                 
                             
