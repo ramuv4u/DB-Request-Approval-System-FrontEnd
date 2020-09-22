@@ -443,8 +443,81 @@ async handleFilter (val) {
         {this.state.loading || !this.state.events ? (
             
          <div  className="d-flex justify-content-center align-items-center" >
-         <div class="spinner-border" role="status"> 
-              <span class="sr-only">Loading</span> 
+         <div > 
+             <table>
+                 <tbody>
+                 <tr >
+                    <td ><strong>Request Id</strong></td>
+                    <td ><strong>Associate Id</strong></td>
+                    <td ><strong>Request Status</strong></td>
+                    <td ><strong>Request Created</strong></td>
+                    <td ><strong>Request Updated</strong></td>
+                    <td ><strong>Remarks</strong></td>
+                    <td ><strong>Escalate</strong></td>
+                    <td ><strong>Action</strong></td>
+		        </tr>
+                <tr >
+                    <td >rqst2646</td>
+                    <td >354235</td>
+                    <td >Approved</td>
+                    <td >2020-05-13</td>
+                    <td >2020-05-13</td>
+                    <td >Done</td>
+                    <td >No</td>
+                    <td >NA</td>
+		        </tr>
+                <tr >
+                    <td >rqst1246</td>
+                    <td >354235</td>
+                    <td >Declined</td>
+                    <td >2020-05-13</td>
+                    <td >2020-05-13</td>
+                    <td >Done</td>
+                    <td >No</td>
+                    <td >NA</td>
+		        </tr>
+                <tr >
+                    <td >rqst2006</td>
+                    <td >354235</td>
+                    <td >Approved</td>
+                    <td >2020-05-13</td>
+                    <td >2020-05-13</td>
+                    <td >Done</td>
+                    <td >No</td>
+                    <td >NA</td>
+		        </tr>
+                <tr >
+                    <td >rqst2146</td>
+                    <td >354235</td>
+                    <td >Delined</td>
+                    <td >2020-05-13</td>
+                    <td >2020-05-13</td>
+                    <td >Done</td>
+                    <td >No</td>
+                    <td >NA</td>
+		        </tr>
+                <tr >
+                    <td >rqst2686</td>
+                    <td >354235</td>
+                    <td >Pending</td>
+                    <td >2020-05-13</td>
+                    <td >2020-05-13</td>
+                    <td >Done</td>
+                    <td >No</td>
+                    <td >NA</td>
+		        </tr>
+                <tr >
+                    <td >rqst2746</td>
+                    <td >354235</td>
+                    <td >Pending</td>
+                    <td >2020-05-13</td>
+                    <td >2020-05-13</td>
+                    <td >Done</td>
+                    <td >Yes</td>
+                    <td >NA</td>
+		        </tr>
+                 </tbody>
+             </table>
           </div> 
           </div>
       
