@@ -77,7 +77,7 @@ class Assignment extends Component{
             body: JSON.stringify({
                 name: this.state.emplSelectValue,
                 status:'in-progress',
-                requestId :'Rq'+Math.random().toString(36).substr(2, 5),
+                requestId :'RQ-'+Math.random().toString(36).substr(2, 5),
                 escalate:'No',
                 manager: this.state.managerSelectValue,
             })
