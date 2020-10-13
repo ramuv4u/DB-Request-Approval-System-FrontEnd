@@ -8,8 +8,21 @@ class Assignment extends Component{
               managers:[],
               selectedEmpl:'',
               selectedManager:'',
+              emplSelectValue: '',
+              managerSelectValue: '',
         };
+        this.handleEmplDropdownChange = this.handleEmplDropdownChange.bind(this);
+        this.handleManagerDropdownChange = this.handleManagerDropdownChange.bind(this);
     }
+
+    handleEmplDropdownChange(e) {
+        this.setState({ emplSelectValue: e.target.value });
+         this.loadMangers();
+      }
+
+      handleManagerDropdownChange(e) {
+        this.setState({ managerSelectValue: e.target.value });
+      }
 
     async componentDidMount() {
         fetch('http://localhost:8080/Demo/getAllEmployee', {
@@ -32,6 +45,8 @@ class Assignment extends Component{
     }
 
     loadMangers=()=>{
+        console.log("On Change Dopdonw Value is  " + this.state.emplSelectValue);
+
         fetch('http://localhost:8080/Demo/getAllManagers', {
             headers: {
                 'Content-Type': 'application/json',
@@ -49,7 +64,7 @@ class Assignment extends Component{
             })    
     }
     onClickSubmit=()=>{
-        console.log("printing from onClickSubmit  " );
+        console.log("printing from onClickSubmit  Empl and Manager names are" + this.state.emplSelectValue + this.state.managerSelectValue  );
 
         fetch('http://localhost:8080/Demo/assignManger', {
             method: 'POST',
@@ -60,8 +75,11 @@ class Assignment extends Component{
                 'Access-Control-Allow-Credentials': true
             },
             body: JSON.stringify({
-                name: 'empfromUI',
-                manager: 'manageFromUI',
+                name: this.state.emplSelectValue,
+                status:'in-progress',
+                requestId :'Rq'+Math.random().toString(36).substr(2, 5),
+                escalate:'No',
+                manager: this.state.managerSelectValue,
             })
             })
 
@@ -76,18 +94,18 @@ class Assignment extends Component{
                 <h4>Select Employee and Approver To Initiate the Flow</h4>
               <div align="left">
                 <label>&nbsp;&nbsp;&nbsp;&nbsp;Employee &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <select name="employee" value={this.state.empl} onChange={this.loadMangers}>
+                <select name="employee" defaultValue='' onChange={this.handleEmplDropdownChange }>
                     {this.state.empl.map((e, key) => {
-                        return <option key={key} value={e.id}>{e.name}</option>;
+                        return <option key={key} value={e.name}>{e.name}</option>;
                     })}
                 </select>
                 </div>
 
                 <div align="left">
                 <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Approver &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <select name="approver" value={this.state.managers}>
+                <select name="approver" defaultValue='' onChange={this.handleManagerDropdownChange}>
                     {this.state.managers.map((e, key) => {
-                        return <option key={key} value={e.id}>{e.name}</option>;
+                        return <option key={key} value={e.name}>{e.name}</option>;
                     })}
                 </select>
                 </div>

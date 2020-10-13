@@ -32,7 +32,7 @@ class EventsPage extends Component {
     }
 
     async componentDidMount() {
-        fetch('http://localhost:8080/Demo/getApprovals', {
+        fetch('http://localhost:8080/Demo/getSummary', {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*',
@@ -52,15 +52,17 @@ class EventsPage extends Component {
 
     }
     renderTableData() {
-        console.log("printing from renderTableData  " + this.state.empl);
+        console.log("00000 printing from renderTableData  " + this.state.empl);
         return this.state.empl.map((em, index) => {
-            const { id, name, status, requestId, escalate, manager } = em //destructuring
+            console.log("11111 printing from renderTableData  " + em);
+            const { id, name, status, requestDate, requestId, escalate, manager } = em 
             return (
                 <tr key={id}>
                     <td>{id}</td>
-                    <td>{name}</td>
-                    <td>{status}</td>
                     <td>{requestId}</td>
+                    <td>{name}</td>
+                    <td>{requestDate}</td>
+                    <td>{status}</td>
                     <td>{escalate}</td>
                     <td>{manager}</td>
                 </tr>
@@ -235,11 +237,12 @@ class EventsPage extends Component {
                                                                     <table>
                                                                         <tr >
                                                                             <td ><strong>S.No</strong></td>
-                                                                            <td ><strong>Name</strong></td>
-                                                                            <td ><strong>Request Status</strong></td>
                                                                             <td ><strong>Request ID</strong></td>
+                                                                            <td ><strong>Requestor Name</strong></td>
+                                                                            <td ><strong>Request Created</strong></td>
+                                                                            <td ><strong>Request Status</strong></td>                                               
                                                                             <td ><strong>Escalate</strong></td>
-                                                                            <td ><strong>Manager</strong></td>
+                                                                            <td ><strong>Manager Name</strong></td>
 
                                                                         </tr>
                                                                         {
